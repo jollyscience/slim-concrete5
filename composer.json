@@ -1,0 +1,27 @@
+{
+    "name": "jollyscience/slim-concrete5",
+    "type": "library",
+    "version": "0.2",
+    "description": "Slim Middleware to use Concrete5 and C5 auth",
+    "keywords": ["slim","concrete5","API", "middleware"],
+    "homepage": "https://github.com/entomb/slim-json-api",
+    "license": "GPL 3.0",
+    "authors": [
+        {
+            "name": "Oliver Green",
+            "homepage": "https://github.com/olsgreen",
+            "role": "Original Developer"
+        },
+        {
+            "name": "Sam Bernard",
+            "homepage": "https://github.com/shihab-alain",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0"
+    },
+    "autoload": {
+        "classmap": ["Concrete5/Middleware"]
+    }
+}
