@@ -33,6 +33,22 @@ namespace Concrete5\Middleware;
 
 class Concrete5 extends \Slim\Middleware
 {
+    /**
+     * Loads the app settings- specifically the location of Concrete5
+     * @param array $config The application configuration
+     */
+    public function __construct($config){
+        if(isset($config['c5_dir'])){
+            /* Set the base path to Concrete5 installation directory */
+            define('DIR_BASE', $config['c5_dir']);
+        }
+    }
+
+
+    /**
+     * Calls the _bootConcrete function to load 
+     * @return void
+     */
     public function call()
     {
         /* Get a handle on Slim */
@@ -53,13 +69,14 @@ class Concrete5 extends \Slim\Middleware
         
     }
     
+    /**
+     * Sets up C5 env vars and loads C5
+     * @return bool true on success
+     */
     private function _bootConcrete() {
         
         /* Set the execute const */
         define('C5_EXECUTE', true);
-        
-        /* Set the base path to Concrete5 installation directory */
-        define('DIR_BASE', '/path/to/concrete5');
         
         /* Skip page rendering */
         define('C5_ENVIRONMENT_ONLY', true);
